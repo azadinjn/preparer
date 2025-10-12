@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>préparer</title>
+    <link rel="stylesheet" href="Estyle1.css">
+    
+</head>
+<body>
+   <div>
+    <table>
+      <tr>
+        <th>التمارين مع التصحيح</th>
+        <th>المواد</th>
+      </tr>
+
+      <tr>
+        <td>
+          <input type="search" placeholder="ابحث عن الدرس...">
+          <ul>
+            <li><span class="lesson-title">الدرس 1</span>
+                <a class="download-btn" href="path/to/file.pdf" download aria-label="تحميل الدرس 1">تحميل ⤓</a>
+              </li>
+            <li>
+               <span class="lesson-title">الدرس 2</span>
+              <a class="download-btn" href="path/to/file.pdf" download aria-label="تحميل الدرس 1">تحميل ⤓</a>
+          </li>
+          </ul>
+        </td>
+        <th>الرياضيات</th>
+      </tr>
+
+      <tr>
+        <td>
+          <input type="search" placeholder="ابحث عن الدرس...">
+          <ul>
+             <li><span class="lesson-title">الدرس 1</span>
+                <a class="download-btn" href="path/to/file.pdf" download aria-label="تحميل الدرس 1">تحميل ⤓</a>
+              </li>
+            <li>
+               <span class="lesson-title">الدرس 2</span>
+              <a class="download-btn" href="path/to/file.pdf" download aria-label="تحميل الدرس 1">تحميل ⤓</a>
+          </li>
+          <li><span class="lesson-title">الدرس 3</span>
+                <a class="download-btn" href="path/to/file.pdf" download aria-label="تحميل الدرس 1">تحميل ⤓</a>
+              </li>
+          </ul>
+        </td>
+        <th>الفيزياء والكيمياء</th>
+      </tr>
+
+      <tr>
+        <td>
+          <input type="search" placeholder="ابحث عن الدرس...">
+          <ul>
+             <li><span class="lesson-title">الدرس 1</span>
+                <a class="download-btn" href="path/to/file.pdf" download aria-label="تحميل الدرس 1">تحميل ⤓</a>
+              </li>
+            <li>
+               <span class="lesson-title">الدرس 2</span>
+              <a class="download-btn" href="path/to/file.pdf" download aria-label="تحميل الدرس 1">تحميل ⤓</a>
+          </li>
+          </ul>
+        </td>
+        <th>علوم الحياة والأرض</th>
+      </tr>
+    </table>
+  </div>
+<script>
+// إظهار الدروس فقط عند البحث
+const searchInputs = document.querySelectorAll('input[type="search"]');
+
+searchInputs.forEach(input => {
+  const list = input.nextElementSibling;
+
+  input.addEventListener('input', () => {
+    if (input.value.trim() !== "") {
+      list.style.display = "block";
+      const items = list.querySelectorAll('li');
+      const term = input.value.toLowerCase();
+      items.forEach(li => {
+        li.style.display = li.textContent.toLowerCase().includes(term) ? "block" : "none";
+      });
+    } else {
+      list.style.display = "none";
+    }
+  });
+});
+</script>
+</body>
+</html>

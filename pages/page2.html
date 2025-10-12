@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>préparer</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    
+<div class="box">
+  <!-- الدورة العادية -->
+  <div class="box1">
+    <div class="title">الامتحانات الدورة العادية</div>
+    <ul>
+      <li>خيار فرنسية
+        <div class="search-container">
+    <input type="text" placeholder="ابحث عن السنة...">
+  </div>
+        <ul>
+          <li>2025</li>
+          <li>2024</li>
+          <li>2023</li>
+          <li>2022</li>
+          <li>2021</li>
+          <li>2020</li>
+        </ul>
+      </li>
+      <li>خيار عربية
+        <div class="search-container">
+    <input type="text" placeholder="ابحث عن السنة...">
+  </div>
+        <ul>
+          <li>2025</li>
+          <li>2024</li>
+          <li>2023</li>
+          <li>2022</li>
+          <li>2021</li>
+          <li>2020</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <!-- الدورة الاستدراكية -->
+  <div class="box2">
+    <div class="title">الامتحانات الدورة الاستدراكية</div>
+    <ul>
+      <li>خيار فرنسية
+        <div class="search-container">
+    <input type="text" placeholder="ابحث عن السنة...">
+  </div>
+        <ul>
+          <li>2025</li>
+          <li>2024</li>
+          <li>2023</li>
+          <li>2022</li>
+          <li>2021</li>
+          <li>2020</li>
+        </ul>
+      </li>
+      <li>خيار عربية
+        <div class="search-container">
+    <input type="text" placeholder="ابحث عن السنة...">
+  </div>
+        <ul>
+          <li>2025</li>
+          <li>2024</li>
+          <li>2023</li>
+          <li>2022</li>
+          <li>2021</li>
+          <li>2020</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<script>
+// جميع العناوين الكبرى
+const titles = document.querySelectorAll(".title");
+
+// كل عنوان كبير
+titles.forEach(title => {
+  title.addEventListener("click", () => {
+    const list = title.nextElementSibling;
+    list.style.display = (list.style.display === "block") ? "none" : "block";
+  });
+  
+}); 
+
+// جميع العناصر اللي فيها قوائم داخلية (خيار فرنسية/عربية)
+const mainItems = document.querySelectorAll(".box li");
+
+mainItems.forEach(item => {
+  const subList = item.querySelector("ul");
+  if (subList) { // إذا عندو لائحة داخلية
+    subList.style.display = "none"; // نخبيها
+    item.addEventListener("click", (e) => {
+      e.stopPropagation(); // باش مايتأثرش بالمستوى الأعلى
+      subList.style.display = (subList.style.display === "block") ? "none" : "block";
+    });
+  }
+});
+// البحث داخل السنوات
+const searchInputs = document.querySelectorAll(".search-container input");
+
+searchInputs.forEach(input => {
+  input.addEventListener("input", () => {
+    const filter = input.value.trim();
+    const ul = input.parentElement.nextElementSibling; // <ul> ديال السنوات
+    const years = ul.querySelectorAll("li");
+
+    years.forEach(year => {
+      if (year.textContent.includes(filter) || filter === "") {
+        year.style.display = "block";
+      } else {
+        year.style.display = "none";
+      }
+    });
+  });
+});
+
+</script>
+</body>
+</html>

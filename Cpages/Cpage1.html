@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>préparer</title>
+    <link rel="stylesheet" href="Cstyle1.css">
+</head>
+<body>
+   <div class="container">
+
+  <!-- 🧮 الرياضيات -->
+  <div class="subject-box">
+    <div class="subject-title">الرياضيات</div>
+    <ul>
+      <li>الدورة الأولى
+        <div class="search-container">
+          <input type="text" placeholder="ابحث عن الدرس...">
+        </div>
+        <ul>
+          <li>الدرس 1</li>
+          <li>الدرس 2</li>
+        </ul>
+      </li>
+      <li>الدورة الثانية
+        <div class="search-container">
+          <input type="text" placeholder="ابحث عن الدرس...">
+        </div>
+        <ul>
+          <li>الدرس 1</li>
+          <li>الدرس 2</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <!-- ⚗️ الفيزياء والكيمياء -->
+  <div class="subject-box">
+    <div class="subject-title">الفيزياء والكيمياء</div>
+    <ul>
+      <li>الدورة الأولى
+        <div class="search-container">
+          <input type="text" placeholder="ابحث عن الدرس...">
+        </div>
+        <ul>
+          <li>الدرس 1</li>
+          <li>الدرس 2</li>
+        </ul>
+      </li>
+      <li>الدورة الثانية
+        <div class="search-container">
+          <input type="text" placeholder="ابحث عن الدرس...">
+        </div>
+        <ul>
+          <li>الدرس 1</li>
+          <li>الدرس 2</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <!-- 🌿 علوم الحياة والأرض -->
+  <div class="subject-box">
+    <div class="subject-title">علوم الحياة والأرض</div>
+    <ul>
+      <li>الدورة الأولى
+        <div class="search-container">
+          <input type="text" placeholder="ابحث عن الدرس...">
+        </div>
+        <ul>
+          <li>الدرس 1</li>
+          <li>الدرس 2</li>
+        </ul>
+      </li>
+      <li>الدورة الثانية
+        <div class="search-container">
+          <input type="text" placeholder="ابحث عن الدرس...">
+        </div>
+        <ul>
+          <li>الدرس 1</li>
+          <li>الدرس 2</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+</div>
+
+<script>
+// فتح المواد عند الضغط على العنوان
+const titles = document.querySelectorAll(".subject-title");
+titles.forEach(title => {
+  title.addEventListener("click", () => {
+    const list = title.nextElementSibling;
+    list.style.display = (list.style.display === "block") ? "none" : "block";
+  });
+});
+
+// فتح الدورات داخل المادة وإظهار search bar فقط عند فتح الدورة
+const mainItems = document.querySelectorAll(".subject-box li");
+mainItems.forEach(item => {
+  const subList = item.querySelector("ul");            // لائحة الدروس
+  const searchContainer = item.querySelector(".search-container"); // خانة البحث
+  if (subList && searchContainer) {
+    subList.style.display = "none";          // نخلي الدروس مخفية
+    searchContainer.style.display = "none";  // نخلي البحث مخفي
+
+    item.addEventListener("click", (e) => {
+      // تجاهل click على input داخل search
+      if (e.target.tagName.toLowerCase() === 'input') return;
+
+      e.stopPropagation();
+      const isOpen = subList.style.display === "block";
+      subList.style.display = isOpen ? "none" : "block";
+      searchContainer.style.display = isOpen ? "none" : "block";
+    });
+  }
+});
+
+// خاصية البحث داخل الدروس
+const searchInputs = document.querySelectorAll(".search-container input");
+searchInputs.forEach(input => {
+  input.addEventListener("input", () => {
+    const filter = input.value.trim();
+    const ul = input.parentElement.nextElementSibling;
+    const lessons = ul.querySelectorAll("li");
+
+    lessons.forEach(lesson => {
+      if (lesson.textContent.includes(filter) || filter === "") {
+        lesson.style.display = "block";
+      } else {
+        lesson.style.display = "none";
+      }
+    });
+  });
+});
+</script>
+</body>
+</html>

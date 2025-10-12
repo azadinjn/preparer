@@ -1,0 +1,64 @@
+* { 
+  box-sizing: border-box;
+}
+
+body { 
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e3f2fd;
+  font-family: "Cascadia Mono", sans-serif;
+}
+
+.box {
+  text-align: center;
+  border: 4px #8ebbf5 solid;
+  border-radius: 10px;
+  background: white;
+  width: 90%;           
+  max-width: 800px;  
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+h1 {
+  font-size: clamp(18px, 4vw, 36px);  /* يتغير حسب الشاشة */
+  color: black;
+  margin-bottom: 20px;
+}
+
+button {
+  font-size: clamp(14px, 2.5vw, 22px); /* responsive font */
+  color: #1a73e8;
+  background: #f1f1f1;
+  border: none;
+  padding: 1em 2em;   
+  margin: 6px; 
+  width: 100%;         /* يخلي الأزرار مرنين */
+  max-width: 450px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: #1a73e8;
+  color: white;
+}
+
+/* تحسين خاص للموبايل */
+@media (max-width: 600px) {
+  .box {
+    width: 95%;
+    padding: 15px;
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+  }
+}

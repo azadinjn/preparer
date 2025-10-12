@@ -1,0 +1,129 @@
+body {
+  margin: 0;
+  font-family: "Cairo", sans-serif;
+  background: #e3f2fd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  direction: rtl;
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.box {
+  width: 30%;
+  min-width: 280px;
+}
+
+/* بطاقات المواد */
+.subject-box {
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  width: 280px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* عنوان المادة */
+.subject-title {
+  font-weight: bold;
+  color: #1a73e8;
+  cursor: pointer;
+  padding: 12px;
+  background: #f1f1f1;
+  border-radius: 10px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.subject-title:hover {
+  background: #1a73e8;
+  color: white;
+}
+
+/* إخفاء القوائم افتراضياً */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: none;
+}
+
+/* عناصر القائمة */
+li {
+  margin-top: 10px;
+  padding: 10px;
+  background: #fafafa;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+li:hover {
+  background: #d1e8ff;
+}
+
+/* تصميم شريط البحث */
+.search-container {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  margin-left: 0.5cm !important;
+}
+
+.search-container input {
+  width: 100%;
+  padding: 8px ;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-family: "Cairo", sans-serif;
+  transition: 0.3s;
+  background: #f9f9f9 url('https://cdn-icons-png.flaticon.com/512/622/622669.png') no-repeat  10px center;
+  background-size: 16px;
+}
+
+.search-container input:focus {
+  border-color: #1a73e8;
+  background-color: #fff;
+  box-shadow: 0 0 6px rgba(26,115,232,0.3);
+  outline: none;
+}
+/* 📱 تحسين خاص للموبايل */
+@media (max-width: 600px) {
+  body {
+    flex-direction: column;
+    height: auto;
+    padding: 20px 0;
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .box, .subject-box {
+    width: 90%;        /* تصغير الكاردات */
+    max-width: 340px;  /* أقصى عرض فالموبايل */
+  }
+
+  .subject-title {
+    font-size: 4vw;
+    padding: 8px;
+  }
+
+  li {
+    font-size: 3.8vw;
+    padding: 8px;
+  }
+
+  .search-container input {
+    font-size: 3.5vw;
+    background-size: 14px;
+  }
+}
