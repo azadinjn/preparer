@@ -1,0 +1,129 @@
+body {
+    background-color: #f5f7fb;
+    font-family: "Cascadia Mono", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 90%;
+    max-width: 800px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+ 
+  th, td {
+    border: 1px solid #e0e0e0;
+    padding: 14px 10px;
+    font-size: 1em;
+  }
+
+  th {
+    background-color: #1a73e8;
+    color: white;
+    font-size: 1.1em;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  tr:hover {
+    background-color: #e6f0ff;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+  position: relative;
+  margin-bottom: 10px;
+  padding-right: 25px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+/* الأيقونة الزرقاء قبل كل عنصر */
+li::before {
+  content: "•"; 
+  position: absolute;
+  right: 0;
+  color: #1a73e8;
+  font-size: 1em;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* تأثير عند المرور */
+li:hover {
+  color: #0b57cf;
+  transform: translateX(-3px);
+}
+
+li:hover::before {
+  color: #0b57cf;
+  transform: scale(1.2);
+}
+
+  button {
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 25px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+
+  button:hover {
+    background-color: #0b57cf;
+    transform: translateY(-2px);
+  }
+ 
+
+/* 📱 شاشات الهاتف */
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+
+  table {
+    width: 100%;
+    font-size: 0.9em;
+  }
+
+  th, td {
+    padding: 10px 6px;
+  }
+
+  button {
+    padding: 6px 10px;
+    font-size: 0.85em;
+  }
+
+  li {
+    font-size: 0.9em;
+  }
+}
+
+/* 💻 الشاشات المتوسطة (تابلت مثلا) */
+@media (min-width: 601px) and (max-width: 900px) {
+  table {
+    width: 95%;
+  }
+
+  th, td {
+    padding: 12px;
+  }
+}
